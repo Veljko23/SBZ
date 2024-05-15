@@ -1,0 +1,105 @@
+package pravila;
+ 
+ import com.app.model.Region;
+ import com.app.model.Voce;
+ import com.app.model.Zemljiste;
+ import java.util.ArrayList;
+ 
+ rule "Klasifikovanje zemljista kao slabo kiselo"
+	agenda-group "classify"
+    when
+        $z: Zemljiste( phVrednost >= 5.51 && phVrednost <= 6.5 , phCategory == phCategory.NA )
+    then
+        $z.setPhCategory(Zemljiste.phCategory.SLABO_KISELO);
+        System.out.println("slabo kiselo");
+        update($z);
+
+end
+
+rule "Klasifikovanje zemljista kao alkalno"
+	agenda-group "classify"
+    when
+        $z: Zemljiste( phVrednost > 7.2, phCategory == phCategory.NA )
+    then
+        $z.setPhCategory(Zemljiste.phCategory.ALKALNO);
+        System.out.println("alkalno");
+        update($z);
+
+end
+
+rule "Klasifikovanje zemljista kao neutralno"
+	agenda-group "classify"
+    when
+        $z: Zemljiste( phVrednost >= 6.51 && phVrednost <= 7.2 , phCategory == phCategory.NA )
+    then
+        $z.setPhCategory(Zemljiste.phCategory.NEUTRALNO);
+        System.out.println("neutralno");
+        update($z);
+
+end
+
+rule "Klasifikovanje zemljista kao kiselo"
+	agenda-group "classify"
+    when
+        $z: Zemljiste( phVrednost >= 4.51 && phVrednost <= 5.5 , phCategory == phCategory.NA )
+    then
+        $z.setPhCategory(Zemljiste.phCategory.KISELO);
+        System.out.println("kiselo");
+        update($z);
+
+end
+
+rule "Klasifikovanje zemljista kao jako kiselo"
+	agenda-group "classify"
+    when
+        $z: Zemljiste( phVrednost <= 4.5 , phCategory == phCategory.NA )
+    then
+        $z.setPhCategory(Zemljiste.phCategory.JAKO_KISELO);
+        System.out.println("jako kiselo");
+        update($z);
+
+end
+
+rule "Klasifikovanje zemljista kao slabo karbonatno"
+    agenda-group "classify"
+    when
+        $z: Zemljiste( kalcijumKarbonat > 0, kalcijumKarbonat <= 5 , calcCategory == calcCategory.NA )
+    then
+        $z.setCalcCategory(Zemljiste.calcCategory.SLABO_KARBONATNO);
+        System.out.println("alabo karb");
+        update($z);
+
+end
+
+rule "Klasifikovanje zemljista kao beskarbonatno"
+    agenda-group "classify"
+    when
+        $z: Zemljiste( kalcijumKarbonat == 0 , calcCategory == calcCategory.NA )
+    then
+        $z.setCalcCategory(Zemljiste.calcCategory.BESKARBONATNO);
+        System.out.println("beskarb");
+        update($z);
+
+end
+
+rule "Klasifikovanje zemljista kao srenje karbonatno"
+    agenda-group "classify"
+    when
+        $z: Zemljiste( kalcijumKarbonat > 5, kalcijumKarbonat <= 10 , calcCategory == calcCategory.NA )
+    then
+        $z.setCalcCategory(Zemljiste.calcCategory.SREDNJE_KARBONATNO);
+        System.out.println("srenje karb");
+        update($z);
+
+end
+
+rule "Klasifikovanje zemljista kao jako karbonatno"
+    agenda-group "classify"
+    when
+        $z: Zemljiste( kalcijumKarbonat > 10 , calcCategory == calcCategory.NA )
+    then
+        $z.setCalcCategory(Zemljiste.calcCategory.JAKO_KARBONATNO);
+        System.out.println("JAKO kaRB");
+        update($z);
+
+end

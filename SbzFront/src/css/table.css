@@ -1,0 +1,526 @@
+.game-history-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-left: 200px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.8);
+  max-width: 1000px;
+  width: 100%;
+  background-color: #ddd;
+}
+
+.firstpage-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 50px;
+  margin-left: 200px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.8);
+  max-width: 1000px;
+  width: 100%;
+  background-color: #ddd;
+}
+.divLabel1 {
+  margin-top: 10px;
+  background-color: #d2cdcd;
+  width: 1096px;
+  margin-left: 310px;
+  height: 30px;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.8);
+  border-bottom: black;
+  border-style: dotted;
+}
+
+
+.label1 {
+  margin-left: 150px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.label2 {
+  margin-left: 250px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+
+.dates-container {
+  margin-right: 0px;
+  margin-bottom: 0px;
+  display: grid;
+  grid-template-columns: 300px 500px 600px; 
+  justify-content: center;
+  margin-left: 10px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.8);
+  width: fit-content;
+  background-color: #ddd;
+}
+
+.game-history-table-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.dates-table-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+}
+
+
+.game-history-table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.dates-table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  width: 500px;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
+
+.reservations-table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  width: 600px;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
+
+
+
+
+.game-history-table th,
+.game-history-table td {
+  width: fit-content;
+  white-space: nowrap;
+  border-radius: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 0px;
+  padding-right: 0px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.dates-table th,
+.dates-table td {
+  width: fit-content;
+  white-space: nowrap;
+  border-radius: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 0px;
+  padding-right: 0px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.reservations-table th,
+.reservations-table td {
+  width: fit-content;
+  white-space: nowrap;
+  border-radius: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 0px;
+  padding-right: 0px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.game-history-table th {
+  
+  font-weight: bold;
+}
+
+.dates-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.reservations-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.game-history-table tbody tr:hover {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.dates-table tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+.reservations-table tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+.game-history-buttons {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.game-history-buttons button {
+  margin: 0 5px;
+}
+
+.game-history-container button {
+  font-size: 1.5rem;
+  font-weight: bold;
+  width: 130px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 10px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.make-admin,
+.make-user {
+  font-size: 15px;
+  border-radius: 10px;
+}
+
+.game-history-container button:hover {
+  background-color: #3e8e41;
+}
+
+.reservations-buttons {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.reservations-buttons button {
+  margin: 0 5px;
+}
+
+.reservations-container button {
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 10px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.reservations-container button:hover {
+  background-color: #3e8e41;
+}
+
+.button-accept {
+  width: 90px;
+  margin-left: 7px;
+  height: 25px;
+  border: none;
+  border-radius: 5px;
+  background-color: #3ae937;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.button-decline {
+  width: 90px;
+  margin-left: 7px;
+  height: 25px;
+  border: none;
+  border-radius: 5px;
+  background-color: #bf2424;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.button-delete {
+  width: fit-content;
+  height: fit-content;
+  border: none;
+  border-radius: 5px;
+  background-color: #bf2424;
+  font-weight: normal;
+  color: #fff;
+  cursor: pointer;
+}
+
+.ignore-parent-styles {
+  all: unset; 
+  width: fit-content  !important;
+  height: fit-content;
+  border: none;
+  border-radius: 5px;
+  background-color: #bf2424;
+  font-weight: bold  !important;
+  font-size: large  !important;
+  color: #fff;
+  cursor: pointer;
+}
+
+.sort-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.sort-container label {
+  margin-right: 10px;
+}
+
+.sort-container select {
+  margin-right: 10px;
+}
+
+.sort-container button {
+  padding: 8px 16px;
+  background-color: #889788;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.sort-container select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.sort-container label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-container h1 {
+  margin-bottom: 1rem;
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 400px;
+}
+
+.form-container label {
+  margin-bottom: 0.5rem;
+}
+
+.form-container input,
+.form-container textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #cebaba;
+  border-radius: 4px;
+}
+
+.form-container button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form-container button:hover {
+  background-color: #0056b3;
+}
+
+.form-container .checkbox-container {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.form-container .checkbox-container label {
+  margin-left: 0.5rem;
+}
+
+
+/* table.css */
+.form-registration {
+  max-width: 400px; 
+  margin: 0 auto; 
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-registration h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.form-registration h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-registration form {
+  display: grid; 
+  grid-row-gap: 10px;
+}
+
+.form-registration label {
+  display: block;
+}
+
+.form-registration input {
+  width: 100%; 
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-registration button {
+  width: 100%; 
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-registration button:hover {
+  background-color: #0056b3;
+}
+
+
+
+.form-edit {
+  max-width: 400px; 
+  margin: 0 auto; 
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-edit h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-edit form {
+  display: grid; 
+  grid-row-gap: 10px;
+}
+
+.form-edit label {
+  display: block;
+}
+
+.form-edit input {
+  width: 100%; 
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-edit button {
+  width: 100%; 
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-edit button:hover {
+  background-color: #0056b3;
+}
+
+.changePassword{
+  margin-top: 20px;
+}
+
+.change{
+  text-align: center;
+}
+
+.requests-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.request-entry {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.request-buttons .backButton{
+  display: flex;
+}
+
+.accept, .deny {
+  margin-left: 10px;
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.accept:hover, .deny:hover, .back-button:hover{
+  filter: brightness(50%);
+}
+
+.back-button {
+  background-color: #467ea3;
+  color: white;
+  border: 1px solid #3498db;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-left: 10px;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.no-requests h3 h4{
+  text-align: center;
+}
+
+.forgotPassword{
+  text-align: center;
+}
+
+.forgotButton{
+  margin-top: 20px;
+}
