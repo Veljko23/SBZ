@@ -99,7 +99,7 @@ rule "Klasifikovanje zemljista kao jako karbonatno"
         $z: Zemljiste( kalcijumKarbonat > 10 , calcCategory == calcCategory.NA )
     then
         $z.setCalcCategory(Zemljiste.calcCategory.JAKO_KARBONATNO);
-        System.out.println("JAKO kaRB");
+        System.out.println("JAKO KARBONATNO");
         update($z);
 
 end
