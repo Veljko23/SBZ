@@ -103,3 +103,30 @@ rule "Klasifikovanje zemljista kao jako karbonatno"
         update($z);
 
 end
+
+// --------------- SLOZENIJA PRAVILA ------------------
+
+rule "Predlaganje sorte voca na osnovu unetih podataka - NIJE STROGO"
+    agenda-group "classify"
+    no-loop
+when
+    $zemljiste: Zemljiste($r: region, $ph: phCategory, $calc: calcCategory)
+    $list: ArrayList() from accumulate(
+        Voce($naziv: name,
+             phCategory == $ph,
+             calcCategory == $calc,
+             nadmorskaVisina >= $r.nadmorskaVisina - 10,
+             nadmorskaVisina <= $r.nadmorskaVisina + 10,
+             prosecnaGodisnjaTemperatura >= $r.prosecnaGodisnjaTemperatura - 2,
+             prosecnaGodisnjaTemperatura <= $r.prosecnaGodisnjaTemperatura + 2
+        ),
+        collectList()
+    )
+then
+    System.out.println("Predlaganje sorte voca na osnovu unetih podataka BLAGO");
+    System.out.println("Pronadjeno: " + $list.size() + " sorti.");
+    modify($zemljiste) { setListaVoca($list) };
+    System.out.println($zemljiste);
+    insert($list);
+end
+
