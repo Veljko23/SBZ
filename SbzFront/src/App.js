@@ -15,7 +15,7 @@ import EditRegion from './components/EditRegion';
 import Fruits from './components/Fruits';
 import CreateFruit from './components/CreateFruit';
 import EditFruit from './components/EditFruit';
-
+import PreporukaVoce from './components/PreporukaVoce';
 import Users from './components/Users';
 import EditUser from './components/EditUser';
 import ChangePassword from './components/ChangePassword';
@@ -34,6 +34,7 @@ function App() {
         <Route path="/fruits" element={<Fruits />} />
         <Route path='/createFruit' element={<CreateFruit /> } />
         <Route path='/editFruit/:id' element={<EditFruit /> } />
+        <Route path='/preporuka' element={<PreporukaVoce /> } />
 
         <Route path='/users' element={<Users /> } />
         <Route path='/edit-profile/:id' element={<EditUser /> } />

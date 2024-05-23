@@ -19,7 +19,7 @@ public class SampleAppController {
 
 	private final SampleAppService sampleService;
 
-	@Autowired
+
 	public SampleAppController(SampleAppService sampleService) {
 		this.sampleService = sampleService;
 	}

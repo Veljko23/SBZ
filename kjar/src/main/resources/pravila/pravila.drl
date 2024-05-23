@@ -4,8 +4,10 @@ package pravila;
  import com.app.model.Voce;
  import com.app.model.Zemljiste;
  import java.util.ArrayList;
+ import java.util.List;
  
- rule "Klasifikovanje zemljista kao slabo kiselo"
+
+rule "Klasifikovanje zemljista kao slabo kiselo"
 	agenda-group "classify"
     when
         $z: Zemljiste( phVrednost >= 5.51 && phVrednost <= 6.5 , phCategory == phCategory.NA )
@@ -99,34 +101,59 @@ rule "Klasifikovanje zemljista kao jako karbonatno"
         $z: Zemljiste( kalcijumKarbonat > 10 , calcCategory == calcCategory.NA )
     then
         $z.setCalcCategory(Zemljiste.calcCategory.JAKO_KARBONATNO);
-        System.out.println("JAKO KARBONATNO");
+        System.out.println("JAKO kaRB");
         update($z);
 
 end
 
-// --------------- SLOZENIJA PRAVILA ------------------
+
 
 rule "Predlaganje sorte voca na osnovu unetih podataka - NIJE STROGO"
+	agenda-group "classify"
+	no-loop
+	when
+		$zemljiste: Zemljiste($r: region, $ph: phCategory, $calc: calcCategory)
+		$list: ArrayList() from collect(
+			Voce($naziv: name, phCategory == $ph 
+			&& calcCategory == $calc 
+			&& nadmorskaVisina >= $r.nadmorskaVisina - 10 
+			&& nadmorskaVisina <= $r.nadmorskaVisina + 10 
+			&& prosecnaGodisnjaTemperatura >= $r.prosecnaGodisnjaTemperatura-2 
+			&& prosecnaGodisnjaTemperatura <= $r.prosecnaGodisnjaTemperatura+2))
+		// provera yadovoljenosti uslova
+	then
+		System.out.println("Predlaganje sorte voca na osnovu unetih podataka BLAGO");
+		// System.out.println($naziv);
+		System.out.println("Pronadjeno: " + $list.size() + " sorti.");
+		// $zemljiste.setListaVoca($list);
+		modify($zemljiste) { setListaVoca($list)};
+		System.out.println($zemljiste);
+		insert($list); 
+end
+
+rule "Predlaganje accumulate - STROGO"
     agenda-group "classify"
     no-loop
 when
     $zemljiste: Zemljiste($r: region, $ph: phCategory, $calc: calcCategory)
     $list: ArrayList() from accumulate(
-        Voce($naziv: name,
-             phCategory == $ph,
-             calcCategory == $calc,
-             nadmorskaVisina >= $r.nadmorskaVisina - 10,
-             nadmorskaVisina <= $r.nadmorskaVisina + 10,
-             prosecnaGodisnjaTemperatura >= $r.prosecnaGodisnjaTemperatura - 2,
-             prosecnaGodisnjaTemperatura <= $r.prosecnaGodisnjaTemperatura + 2
+        $voce: Voce(
+            phCategory == $ph,
+            calcCategory == $calc,
+            nadmorskaVisina == $r.nadmorskaVisina,
+            prosecnaGodisnjaTemperatura == $r.prosecnaGodisnjaTemperatura
         ),
-        collectList()
+        init(ArrayList<Voce> list = new ArrayList<Voce>();),
+        action(list.add($voce);),
+        result(list)
     )
 then
-    System.out.println("Predlaganje sorte voca na osnovu unetih podataka BLAGO");
+    System.out.println("Predlaganje accumulate");
     System.out.println("Pronadjeno: " + $list.size() + " sorti.");
+    for (Object voce : $list) {
+        System.out.println("Found: " + voce);
+    }
     modify($zemljiste) { setListaVoca($list) };
     System.out.println($zemljiste);
     insert($list);
 end
-

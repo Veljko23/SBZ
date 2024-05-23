@@ -38,7 +38,7 @@ private static Logger log = LoggerFactory.getLogger(SampleAppController.class);
 
 		Zemljiste newZemljiste = zemljisteConvert.toDTO(dto);
 
-		System.out.println("Zemljiste request received for: " + newZemljiste);
+		System.out.println("Zemljiste preporukaController request received for: " + newZemljiste);
 
 		Zemljiste z2 = preporukaService.getClassifiedZemljiste(newZemljiste, dto.getPoklapanja());
 

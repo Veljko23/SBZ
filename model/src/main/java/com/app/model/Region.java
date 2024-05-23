@@ -104,5 +104,11 @@ public class Region {
 		this.kolicinaPadavina = kolicinaPadavina;
 	}
 	
+	@Override
+	public String toString() {
+		return "Region [id=" + id + ", naziv=" + naziv + ", nadmorskaVisina=" + nadmorskaVisina
+				+ ", prosecnaGodisnjaTemperatura=" + prosecnaGodisnjaTemperatura + ", minTemperatura=" + minTemperatura
+				+ ", maxTemperatura=" + maxTemperatura + ", kolicinaPadavina=" + kolicinaPadavina + "]";
+	}
 
 }

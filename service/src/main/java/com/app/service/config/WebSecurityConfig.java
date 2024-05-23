@@ -91,7 +91,7 @@ public class WebSecurityConfig {
 	@Bean
 	public WebSecurityCustomizer webSecurityCustomizer() {
 		return (web) -> web.ignoring().antMatchers(HttpMethod.POST, "/auth/login", "/api/users/register")
-				.antMatchers(HttpMethod.GET, "/api/fruits/phValues", "/api/fruits/calcValues", "/", "/webjars/**", "/*.html", "favicon.ico", "/**/*.html", "/**/*.css",
+				.antMatchers(HttpMethod.GET, "/api/fruits/phValues", "/api/fruits/calcValues", "/zemljiste", "/", "/webjars/**", "/*.html", "favicon.ico", "/**/*.html", "/**/*.css",
 						"/**/*.js");
 
 	}

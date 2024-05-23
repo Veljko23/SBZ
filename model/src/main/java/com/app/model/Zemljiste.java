@@ -2,65 +2,35 @@ package com.app.model;
 
 import java.util.ArrayList;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
 public class Zemljiste {
-	
+
 	public enum phCategory {
         NA, ALKALNO, NEUTRALNO, SLABO_KISELO,
-        KISELO, JAKO_KISELO;
-        
-        public int value() {
-        	return ordinal();
-        }
+        KISELO, JAKO_KISELO
     };
     
     public enum calcCategory {
-        NA, BESKARBONATNO, SLABO_KARBONATNO, SREDNJE_KARBONATNO, JAKO_KARBONATNO;
-    	 public int value() {
-         	return ordinal();
-    	 }
+        NA, BESKARBONATNO, SLABO_KARBONATNO, SREDNJE_KARBONATNO, JAKO_KARBONATNO
     };
     
-    
     private static final long serialVersionUID = 1L;
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
     
     private Long id;
-    
-    
     private Double phVrednost;
     private Double kalcijumKarbonat;
     private Double azot;
     private Double fosfor;
     private Double kalijum;
     private Double humus;
-    
-   
-    private phCategory phCategory; // kategorija ph vrednosti koja najvise odgovara nekoj biljci
-    private calcCategory calcCategory; // kategorija za karbonat koja joj najvise odgovara
-    
-
+    private phCategory phCategory;
+    private calcCategory calcCategory;
     private Region region;
-    
     private String voce;
-    
     private ArrayList<Voce> listaVoca;
-    
-    public Zemljiste() {}
-
-	public Zemljiste(Long id, Double phVrednost, Double kalcijumKarbonat,
-			com.app.model.Zemljiste.phCategory phCategory,
-			com.app.model.Zemljiste.calcCategory calcCategory, String voce) {
-		super();
-		this.id = id;
-		this.phVrednost = phVrednost;
-		this.kalcijumKarbonat = kalcijumKarbonat;
-		this.phCategory = phCategory;
-		this.calcCategory = calcCategory;
-		this.voce = "unknown";
-	}
-	
+   
 	public Zemljiste(Long id, Double pHVrednost, Double kalcijumKarbonat) {
 		super();
 		this.id = id;
@@ -71,14 +41,14 @@ public class Zemljiste {
 		this.voce = "unknown";
 	}
 	
-	public Zemljiste(double phVrednost, double kalcijumKarbonat) {
-		this(null, phVrednost, kalcijumKarbonat);
+	public Zemljiste() {
+		super();
 	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
+	
+	public Zemljiste(Double phVrednost, Double kalcijumKarbonat) {
+        this(null, phVrednost, kalcijumKarbonat);
+    }
+	
 	public Long getId() {
 		return id;
 	}
@@ -174,7 +144,25 @@ public class Zemljiste {
 	public void setListaVoca(ArrayList<Voce> listaVoca) {
 		this.listaVoca = listaVoca;
 	}
-    
+
+	@Override
+	public String toString() {
+		return "Zemljiste [id=" + id + ", phVrednost=" + phVrednost + ", kalcijumKarbonat=" + kalcijumKarbonat
+				+ ", azot=" + azot + ", fosfor=" + fosfor + ", kalijum=" + kalijum + ", humus=" + humus
+				+ ", phCategory=" + phCategory + ", calcCategory=" + calcCategory + ", region=" + region + ", voce="
+				+ voce + ", listaVoca=" + listaVoca + "]";
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((calcCategory == null) ? 0 : calcCategory.hashCode());
+		result = prime * result + ((kalcijumKarbonat == null) ? 0 : kalcijumKarbonat.hashCode());
+		result = prime * result + ((phVrednost == null) ? 0 : phVrednost.hashCode());
+		result = prime * result + ((phCategory == null) ? 0 : phCategory.hashCode());
+		return result;
+	}
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -206,4 +194,5 @@ public class Zemljiste {
 			return false;
 		return true;
 	}
+    
 }

@@ -145,4 +145,12 @@ public class Voce {
 		this.calcCategory = calcCategory;
 	}
 	
+	@Override
+	public String toString() {
+		return "Voce [id=" + id + ", name=" + name + ", opis=" + opis + ", nadmorskaVisina=" + nadmorskaVisina
+				+ ", minTemperatura=" + minTemperatura + ", maxTemperatura=" + maxTemperatura + ", kolicinaPadavina="
+				+ kolicinaPadavina + ", prosecnaGodisnjaTemperatura=" + prosecnaGodisnjaTemperatura + ", phCategory="
+				+ phCategory + ", calcCategory=" + calcCategory + "]";
+	}
+	
 }
