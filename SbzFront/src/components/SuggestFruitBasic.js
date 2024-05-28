@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const PreporukaVoce = () => {
+const SuggestFruitBasic = () => {
     const token = localStorage.getItem("token");
 
     const [phVrednost, setPhVrednost] = useState('');
@@ -11,7 +11,7 @@ const PreporukaVoce = () => {
 
     const onSubmit = async () => {
         try {
-            const response = await axios.post('http://localhost:8080/suggest', {
+            const response = await axios.post('http://localhost:8080/suggest/basic', {
                 phVrednost,
                 kalcijumKarbonat,
                 region
@@ -69,4 +69,4 @@ const PreporukaVoce = () => {
     );
 };
 
-export default PreporukaVoce;
+export default SuggestFruitBasic;

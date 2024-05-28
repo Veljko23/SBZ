@@ -33,12 +33,24 @@ private static Logger log = LoggerFactory.getLogger(SampleAppController.class);
 		this.preporukaService = preporukaService;
 	}
 	
-	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<?> getQuestionsZemljiste(@RequestBody ZemljisteDto dto) {
+	@PostMapping(value = "/basic", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<?> getQuestionsZemljisteBasic(@RequestBody ZemljisteDto dto) {
 
 		Zemljiste newZemljiste = zemljisteConvert.toDTO(dto);
 
-		System.out.println("Zemljiste preporukaController request received for: " + newZemljiste);
+		System.out.println("Zemljiste preporukaController - BASIC request received for: " + newZemljiste);
+
+		Zemljiste z2 = preporukaService.getClassifiedZemljiste(newZemljiste, dto.getPoklapanja());
+
+		return new ResponseEntity<>(newZemljiste.getListaVoca(), HttpStatus.OK);
+	}
+	
+	@PostMapping(value = "/complex", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<?> getQuestionsZemljisteComplex(@RequestBody ZemljisteDto dto) {
+
+		Zemljiste newZemljiste = zemljisteConvert.toDTO(dto);
+
+		System.out.println("Zemljiste preporukaController - COMPLEX request received for: " + newZemljiste);
 
 		Zemljiste z2 = preporukaService.getClassifiedZemljiste(newZemljiste, dto.getPoklapanja());
 

@@ -131,6 +131,8 @@ rule "Predlaganje sorte voca na osnovu unetih podataka - NIJE STROGO"
 		insert($list); 
 end
 
+
+
 rule "Predlaganje accumulate - STROGO"
     agenda-group "classify"
     no-loop
@@ -157,3 +159,7 @@ then
     System.out.println($zemljiste);
     insert($list);
 end
+
+
+
+

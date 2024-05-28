@@ -10,6 +10,13 @@ const UserHomePage = () => {
   const onFruitsListClickHandler = (event) => {
     return navigate("/fruits");
   };
+  const onGetSuggestBasicClickHandler = (event) => {
+    return navigate("/suggestBasic");
+  };
+
+  const onGetSuggestComplexClickHandler = (event) => {
+    return navigate("/suggestComplex");
+  };
   
   const onEditProfileClickHandler = (event) => {
     const userId = localStorage.getItem("userId");
@@ -28,6 +35,14 @@ const UserHomePage = () => {
           <div className="button-group">
           <button type="button" onClick={onFruitsListClickHandler}>
               Fruits
+            </button>
+
+            <button type="button" onClick={onGetSuggestBasicClickHandler}>
+              Suggest:Basic
+            </button>
+
+            <button type="button" onClick={onGetSuggestComplexClickHandler}>
+              Suggest:Basic
             </button>
 
             <button type="button" onClick={onEditProfileClickHandler}>
