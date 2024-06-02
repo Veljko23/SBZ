@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import "../css/table.css";
 
 const SuggestFruitBasic = () => {
     const token = localStorage.getItem("token");
@@ -32,7 +33,7 @@ const SuggestFruitBasic = () => {
     };
 
     return (
-        <div>
+        <div className='form-edit'>
             <h2>Add Zemljiste</h2>
             <div>
                 <label>pH Vrednost:</label>
@@ -58,7 +59,7 @@ const SuggestFruitBasic = () => {
                     onChange={(e) => setRegion(e.target.value)}
                 />
             </div>
-            <button onClick={onSubmit}>Generiši</button>
+            <button type='button' onClick={onSubmit}>Generiši</button>
             {output && (
                 <div>
                     <h3>Preporučene sorte voća:</h3>

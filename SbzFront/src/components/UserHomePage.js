@@ -42,7 +42,7 @@ const UserHomePage = () => {
             </button>
 
             <button type="button" onClick={onGetSuggestComplexClickHandler}>
-              Suggest:Basic
+              Suggest:Complex
             </button>
 
             <button type="button" onClick={onEditProfileClickHandler}>

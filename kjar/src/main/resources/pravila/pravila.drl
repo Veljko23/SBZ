@@ -133,7 +133,7 @@ end
 
 
 
-rule "Predlaganje accumulate - STROGO"
+rule "Predlaganje accumulate"
     agenda-group "classify"
     no-loop
 when
@@ -142,8 +142,8 @@ when
         $voce: Voce(
             phCategory == $ph,
             calcCategory == $calc,
-            nadmorskaVisina == $r.nadmorskaVisina,
-            prosecnaGodisnjaTemperatura == $r.prosecnaGodisnjaTemperatura
+            nadmorskaVisina >= ($r.nadmorskaVisina - 10) && nadmorskaVisina <= ($r.nadmorskaVisina + 10),
+            prosecnaGodisnjaTemperatura >= ($r.prosecnaGodisnjaTemperatura - 5) && prosecnaGodisnjaTemperatura <= ($r.prosecnaGodisnjaTemperatura + 5)
         ),
         init(ArrayList<Voce> list = new ArrayList<Voce>();),
         action(list.add($voce);),

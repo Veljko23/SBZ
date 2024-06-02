@@ -30,6 +30,7 @@ public class Zemljiste {
     private Region region;
     private String voce;
     private ArrayList<Voce> listaVoca;
+    private String preporukaKrecnjak;
    
 	public Zemljiste(Long id, Double pHVrednost, Double kalcijumKarbonat) {
 		super();
@@ -193,6 +194,14 @@ public class Zemljiste {
 		if (phCategory != other.phCategory)
 			return false;
 		return true;
+	}
+
+	public String getPreporukaKrecnjak() {
+		return preporukaKrecnjak;
+	}
+
+	public void setPreporukaKrecnjak(String preporukaKrecnjak) {
+		this.preporukaKrecnjak = preporukaKrecnjak;
 	}
     
 }
